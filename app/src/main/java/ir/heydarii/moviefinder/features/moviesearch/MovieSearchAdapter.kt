@@ -8,8 +8,7 @@ import ir.heydarii.moviefinder.R
 import ir.heydarii.moviefinder.pojo.Result
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 
-class MovieSearchAdapter(val list: List<Result>) :
-    RecyclerView.Adapter<MovieSearchAdapter.MovieSearchViewHolder>() {
+class MovieSearchAdapter(private val list: List<Result>) : RecyclerView.Adapter<MovieSearchAdapter.MovieSearchViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieSearchViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.movie_list_item, parent, false)
         return MovieSearchViewHolder(v)

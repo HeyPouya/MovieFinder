@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Movie Finder</string>
+    <string name="enter_a_movie_name">Enter a movie name</string>
 </resources>
