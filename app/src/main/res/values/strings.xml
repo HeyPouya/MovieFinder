@@ -3,4 +3,7 @@
     <string name="enter_a_movie_name">Enter a movie name</string>
     <string name="poster">Poster</string>
     <string name="search">Search</string>
+    <string name="cover">Cover</string>
+    <string name="movie_release_date">Release date : %s</string>
+    <string name="movie_length">Movie length : %s</string>
 </resources>

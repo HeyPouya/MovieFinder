@@ -2,6 +2,7 @@ package ir.heydarii.moviefinder.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import ir.heydarii.moviefinder.features.moviedetail.MovieDetailsViewModel
 import ir.heydarii.moviefinder.features.moviesearch.SearchMovieViewModel
 import ir.heydarii.moviefinder.repository.DataRepository
 import java.lang.IllegalStateException
@@ -11,6 +12,7 @@ class ViewModelFactoryProvider(private val repository: DataRepository) : ViewMod
 
         return when{
             modelClass.isAssignableFrom(SearchMovieViewModel::class.java) -> SearchMovieViewModel(repository) as T
+            modelClass.isAssignableFrom(MovieDetailsViewModel::class.java) -> MovieDetailsViewModel(repository) as T
             else -> throw IllegalStateException("You haven't provided factory for this ViewModel")
         }
     }
