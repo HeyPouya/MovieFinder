@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import ir.heydarii.moviefinder.R
 import ir.heydarii.moviefinder.pojo.Result
+import ir.heydarii.moviefinder.utils.Consts
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 
 class MovieSearchAdapter(private val list: List<Result>) : RecyclerView.Adapter<MovieSearchAdapter.MovieSearchViewHolder>() {
@@ -27,6 +29,7 @@ class MovieSearchAdapter(private val list: List<Result>) : RecyclerView.Adapter<
             itemView.txtReleaseDate.text = movie.release_date
             itemView.rateMovie.rating = movie.vote_average.toFloat() / 2
             itemView.txtDetails.text = movie.overview
+            Picasso.get().load(Consts.SMALL_PIC_URL + movie.backdrop_path).into(itemView.imgPoster)
 
         }
 
