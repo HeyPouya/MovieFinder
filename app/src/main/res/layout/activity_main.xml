@@ -7,11 +7,11 @@
     tools:context=".features.moviesearch.MainActivity">
 
     <androidx.cardview.widget.CardView
-        app:cardElevation="4dp"
         android:id="@+id/cardSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="25dp"
+        app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +34,20 @@
                 android:minHeight="48dp"
                 android:padding="8dp" />
 
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/search"
+                android:padding="12dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/ic_search" />
+
             <ImageView
                 android:id="@+id/imgSearch"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:contentDescription="@string/search"
                 android:padding="12dp"
                 app:srcCompat="@drawable/ic_search" />
 

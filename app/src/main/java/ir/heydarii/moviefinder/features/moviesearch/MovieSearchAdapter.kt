@@ -10,10 +10,11 @@ import ir.heydarii.moviefinder.pojo.Result
 import ir.heydarii.moviefinder.utils.Consts
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 
-class MovieSearchAdapter(private val list: List<Result>) : RecyclerView.Adapter<MovieSearchAdapter.MovieSearchViewHolder>() {
+class MovieSearchAdapter(private val list: List<Result>, private val listener: (Long) -> Unit) :
+    RecyclerView.Adapter<MovieSearchAdapter.MovieSearchViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieSearchViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.movie_list_item, parent, false)
-        return MovieSearchViewHolder(v)
+        return MovieSearchViewHolder(v,listener)
     }
 
     override fun getItemCount() = list.size
@@ -23,7 +24,7 @@ class MovieSearchAdapter(private val list: List<Result>) : RecyclerView.Adapter<
     }
 
 
-    class MovieSearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MovieSearchViewHolder(itemView: View, private val listener: (Long) -> Unit) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Result) {
             itemView.txtTitle.text = movie.title
             itemView.txtReleaseDate.text = movie.release_date
@@ -31,6 +32,9 @@ class MovieSearchAdapter(private val list: List<Result>) : RecyclerView.Adapter<
             itemView.txtDetails.text = movie.overview
             Picasso.get().load(Consts.SMALL_PIC_URL + movie.backdrop_path).into(itemView.imgPoster)
 
+            itemView.setOnClickListener {
+                listener(movie.id)
+            }
         }
 
     }
